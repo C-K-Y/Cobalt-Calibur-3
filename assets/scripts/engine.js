@@ -5,7 +5,7 @@ $(function() {
 window.app = {
     // First we download a bunch of our assets
     downloadAssets: function() {
-        app.chat.message('About', 'Cobalt Calibur, by <a target="_blank" href="http://thomashunter.name">Thomas Hunter</a> (<a target="_blank" href="http://twitter.com/tlhunter">@tlhunter</a>)', 'help');
+        app.chat.message('About', 'Cobalt Calibur, by Thomas Hunter (@tlhunter).', 'help');
         $.when(
             app.graphics.tilesets.download(
                 '/assets/tilesets/inventory-32x32.png',
@@ -48,13 +48,11 @@ window.app = {
         app.graphics.hearts.draw();
         app.chat.message('Help', 'Type /help for some help', 'help');
         app.chat.message('Help', 'Use the WASD keys to move around', 'help');
-        
+
         setTimeout(function() {
             app.network.send.move(app.player.coordinates, app.player.direction);
             app.network.send.character(app.player.name, app.player.picture);
         }, 500);
-
-        
 
         $('#controls .button').tipsy({fade: false, gravity: 's', html: true});
     },
@@ -1003,7 +1001,6 @@ window.app = {
                 } else if (message === '/help') {
                     app.chat.message('Help', '-{Keys}----------------------------', 'help');
                     app.chat.message('Help', 'Use the WASD keys to move', 'help');
-                    app.chat.message('Help', 'Use the WASD keys + SHIFT to turn', 'help');
                     app.chat.message('Help', 'Press F to mine the facing object', 'help');
                     app.chat.message('Help', 'Press T or / to enter the chat box', 'help');
                     app.chat.message('Help', 'Press Esc to leave the chat box', 'help');
